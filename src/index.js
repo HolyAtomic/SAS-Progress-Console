@@ -1,13 +1,9 @@
 const prompt = require('prompt-sync')()
 const apprenants = require('./data')
 
-function ajouterApprenant(){
-    const id = Number(prompt("Identifiant: "))
-    const fullname = prompt("New Complet: ")
-    const city = prompt("City: ")
-
+function ajouterApprenant(id, fullname, city){
     const exist = apprenants.find(function(apprenant){
-        return apprenant.id === id
+        return apprenant.id == id
     })
     if(exist){
         console.log("Fatal: This Identifiant Already Exist")
@@ -20,7 +16,7 @@ function ajouterApprenant(){
         resultats : [],
     }
     apprenants.push(apprenant)
-    console.log("The Apprenant has been successfully added")
+    console.log("The Learner has been successfully added")
 }
 
 while (true) {
