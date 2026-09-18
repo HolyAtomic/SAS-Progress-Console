@@ -20,7 +20,7 @@ const apprenants = [
     },
     {
         id: 2,
-        nomComplet: "sara Code",
+        nomComplet: "Yassine Code",
         ville: "Oujda",
         resultats: [
             {
