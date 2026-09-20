@@ -218,5 +218,57 @@ while (true) {
             })
 
         }
+
+
+    // 8 - Sort by progression
+    } else if (choice === "8") {
+
+        const results = trierParProgression()
+
+        console.log("\n===== SORTED BY PROGRESSION =====")
+
+        results.forEach(function(app) {
+
+            const progress = calculation(app).prosess
+
+            console.log(
+                app.nomComplet,
+                "→",
+                progress.toFixed(2) + "%"
+            )
+
+        })
+
+
+    // 9 - Sort by name
+    } else if (choice === "9") {
+
+        const results = trierParNom()
+
+        console.log("\n===== SORTED BY NAME =====")
+
+        results.forEach(function(app) {
+
+            console.log(
+                app.nomComplet,
+                "→",
+                app.ville
+            )
+
+        })
+
+
+    // 10 - Exit
+    } else if (choice === "10") {
+
+        console.log("Goodbye!")
+        break
+
+
+    // Invalid option
+    } else {
+
+        console.log("Invalid option")
+
     }
 }
