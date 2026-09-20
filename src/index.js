@@ -266,5 +266,9 @@ while (true) {
 
 
     // Invalid option
+    } else {
+
+        console.log("Invalid option")
+
     }
 }
