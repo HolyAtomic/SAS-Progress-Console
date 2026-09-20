@@ -132,5 +132,91 @@ while (true) {
             totalexercices,
             challengefin
         )
+
+
+    // 6 - Search by name
+    } else if (choice === "6") {
+
+        const name = prompt("Search name: ")
+
+        const results = searchwithname(name)
+
+        if (results.length === 0) {
+
+            console.log("No learner found")
+
+        } else {
+
+            console.log("\n===== SEARCH RESULTS =====")
+
+            results.forEach(function(app) {
+
+                const progress = calculation(app).prosess
+
+                console.log("ID:", app.id)
+                console.log("Name:", app.nomComplet)
+                console.log("City:", app.ville)
+                console.log("Progression:", progress.toFixed(2) + "%")
+                console.log("--------------------------------")
+
+            })
+
+        }
+
+
+    // 7 - Filter by level
+    } else if (choice === "7") {
+
+        console.log("\n===== LEVELS =====")
+        console.log("1. Solide")
+        console.log("2. En progression")
+        console.log("3. À renforcer")
+
+        const levelChoice = prompt("Choose level: ")
+
+        let level
+
+        if (levelChoice === "1") {
+
+            level = "Solide"
+
+        } else if (levelChoice === "2") {
+
+            level = "En progression"
+
+        } else if (levelChoice === "3") {
+
+            level = "À renforcer"
+
+        } else {
+
+            console.log("Invalid level")
+            continue
+
+        }
+
+        const results = filterbylevels(level)
+
+        console.log("\n===== " + level + " =====")
+
+        if (results.length === 0) {
+
+            console.log("No learner found")
+
+        } else {
+
+            results.forEach(function(app) {
+
+                const progress = calculation(app).prosess
+
+                console.log(
+                    app.nomComplet,
+                    "→",
+                    progress.toFixed(2) + "%"
+                )
+
+            })
+
+        }
     }
 }
