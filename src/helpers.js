@@ -145,6 +145,73 @@ function trierParProgression(){
     })
     return result
 }
+function afichingboard(){
+
+    const totallearner = apprenants.length
+
+    let totalprogress = 0
+    let Solide = 0
+    let Enprogression = 0
+    let arenforcer = 0
+
+    apprenants.forEach(function(app){
+
+        const progress = calculation(app).prosess
+
+        totalprogress += progress
+
+        if(progress >= 80){
+            Solide++
+        }else if(progress >= 50 && progress < 80){
+            Enprogression++
+        }else{
+            arenforcer++
+        }
+
+    })
+
+    let moyene = 0
+
+    if(totallearner > 0){
+        moyene = totalprogress / totallearner
+    }
+
+    console.log("===== DASHBOARD =====")
+
+    console.log("Total learners:", totallearner)
+    console.log("Average progression:", moyene.toFixed(2) + "%")
+    console.log("Solide:", Solide)
+    console.log("En progression:", Enprogression)
+    console.log("À renforcer:", arenforcer)
+
+    console.log("\n===== LEARNERS =====")
+
+    apprenants.forEach(function(app){
+
+        const progress = calculation(app).prosess
+
+        console.log("ID:", app.id)
+        console.log("Nom:", app.nomComplet)
+        console.log("Progression:", progress.toFixed(2) + "%")
+        console.log("Jours terminés:", app.resultats.length)
+        console.log("--------------------------------")
+
+    })
+
+    console.log("===== END OF DASHBOARD =====")
+}
+
+function trierParNom(){
+
+    const result = apprenants.sort(function(one, two){
+
+        return one.nomComplet.localeCompare(two.nomComplet)
+
+    })
+
+    return result
+}
+
 module.exports = {
     ajouterApprenant,
     enregistrerResultat,
@@ -153,5 +220,7 @@ module.exports = {
     searchwithname,
     calculation,
     filterbylevels,
-    trierParProgression
+    trierParProgression,
+    afichingboard,
+    trierParNom
 }
