@@ -97,5 +97,40 @@ while (true) {
 
         }
 
+
+    // 5 - Add / Update result
+    } else if (choice === "5") {
+
+        const id = Number(prompt("Learner ID: "))
+        const day = Number(prompt("Day (1-7): "))
+        const exercicesfin = Number(prompt("Exercises completed: "))
+        const totalexercices = Number(prompt("Total exercises: "))
+
+        const challenge = prompt("Challenge completed? (true/false): ")
+
+        let challengefin
+
+        if (challenge.toLowerCase() === "true") {
+
+            challengefin = true
+
+        } else if (challenge.toLowerCase() === "false") {
+
+            challengefin = false
+
+        } else {
+
+            console.log("Challenge must be true or false")
+            continue
+
+        }
+
+        enregistrerResultat(
+            id,
+            day,
+            exercicesfin,
+            totalexercices,
+            challengefin
+        )
     }
 }
